@@ -1,24 +1,20 @@
 package vista;
 
 import controlador.Controlador;
+import controlador.Controlador;
 import controlador.OperacionMetodo;
 import modelo.Metodos;
-
 import java.util.Scanner;
-
 public class VistaConsola implements Vista {
     private Controlador controlador;
-
     @Override
     public void mostrarMensaje(String mensaje) {
         System.out.println(mensaje);
     }
-
     @Override
     public void mostrarResultados(String resultados) {
         System.out.println(resultados);
     }
-
     @Override
     public void iniciar(Controlador controlador) {
         boolean condi = true;
@@ -26,11 +22,10 @@ public class VistaConsola implements Vista {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Bienvenido/a al menú de registro de candidatos\n");
             System.out.println("1. Insertar candidatos\n2. Actualizar candidato\n3. EliminarCandidato\n4. Buscar candidato por nombre\n5. Listar todos los candidatos.\n");
-            System.out.println("Digite la el número de la opción a realizar: ");
+            System.out.println("Digite el número de la opción a realizar: ");
             int opc = scanner.nextInt();
             switch(opc){
                 case 1:
-
                     controlador.setOperacion(OperacionMetodo.AGREGAR_C);
                     break;
                 case 2:
@@ -65,19 +60,15 @@ public class VistaConsola implements Vista {
         int opc2 = scanner2.nextInt();
         switch(opc2){
             case 1:
-
                 controlador.setOperacion(OperacionMetodo.ASIGNAR_V);
-
                 break;
             case 2: 
                 break;
             default:
                 break;
         }
-
         controlador.setOperacion(OperacionMetodo.CONTAR_V);
         controlador.setOperacion(OperacionMetodo.MAS_PARTIDO);
         controlador.setOperacion(OperacionMetodo.TOP3);
-
     }
 }
