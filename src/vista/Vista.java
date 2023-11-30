@@ -7,3 +7,4 @@ public interface Vista {
     void mostrarResultados(String resultados);
     void iniciar(Controlador controlador);
 }
+
