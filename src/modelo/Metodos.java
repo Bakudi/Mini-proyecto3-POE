@@ -131,21 +131,7 @@ public class Metodos {
             }
         }
     }
-    public void buscarNombreCandidato(ArrayList<Candidato> lista) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese el nombre del candidato que desea consultar: ");
-        String nomCandidato = scanner.nextLine();
-        for(int i=0 ; i< lista.size(); i++){
-            if(lista.get(i).getNombre() == nomCandidato){
-                System.out.println("Nombre : " + lista.get(i).getNombre() + "\n");
-                System.out.println("Cédula : " + lista.get(i).getCedula() + "\n");
-                System.out.println("Origen : " + lista.get(i).getOrigen() + "\n");
-                System.out.println("Candidato de : " + lista.get(i).isDerecha() + "\n");
-                System.out.println("Partido político : " + lista.get(i).getPartidoc() + "\n");
-                System.out.println("Promesas : " + lista.get(i).getPromesas() + "\n");
-            }
-        }    
-    }
+
     public void listarCandidato(ArrayList<Candidato> lista) {
         System.out.println("Lista de candidatos mostrada en pantalla:\n");
         for(int i=0; i< lista.size(); i++){
@@ -160,9 +146,6 @@ public class Metodos {
         }
     }
 
-    }
-    
-    }
     public void buscarNombreCandidato(ArrayList<Candidato> lista) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el nombre del candidato que desea consultar: ");
@@ -178,31 +161,7 @@ public class Metodos {
             }
         }    
     }
-   
 
-        if (lista.isEmpty()) {
-            System.out.println("No hay candidatos para asignar votos.");
-            return;
-        }
-
-        Scanner scanner = new Scanner(System.in);
-
-        for (Candidato candidato : lista) {
-            System.out.println("Ingrese la cantidad de votos a asignar al candidato " + candidato.getNombre() + ":");
-            int cantidadVotos = scanner.nextInt();
-
-            if (cantidadVotos < 0) {
-                System.out.println("La cantidad de votos no puede ser negativa. Intentelo de nuevo.");
-                return;
-            }
-
-            candidato.agregarVotos(cantidadVotos);
-            System.out.println("Votos asignados al candidato " + candidato.getNombre() + ".");
-        }
-
-        System.out.println("Votos asignados a todos los candidatos.");
-
-    }
     public void contarVotos(ArrayList<Candidato> lista) {
         if (lista.isEmpty()) {
             System.out.println("No hay candidatos para contar votos.");
@@ -263,17 +222,32 @@ public class Metodos {
             }
         }
     }
+    public void asignarVotos(ArrayList<Candidato> lista) {
+        if (lista.isEmpty()) {
+            System.out.println("No hay candidatos para asignar votos.");
+            return;
+        }
 
-        // Lógica para asignar votos a los candidatos
+        Scanner scanner = new Scanner(System.in);
+
+        for (Candidato candidato : lista) {
+            System.out.println("Ingrese la cantidad de votos a asignar al candidato " + candidato.getNombre() + ":");
+            int cantidadVotos = scanner.nextInt();
+
+            if (cantidadVotos < 0) {
+                System.out.println("La cantidad de votos no puede ser negativa. Inténtelo de nuevo.");
+                return;
+            }
+
+            candidato.agregarVotos(cantidadVotos);
+            System.out.println("Votos asignados al candidato " + candidato.getNombre() + ".");
+        }
+
+        System.out.println("Votos asignados a todos los candidatos.");
+    
     }
-    public void contarVotos(ArrayList<Candidato> lista) {
-        // Lógica para contar los votos y mostrar al ganador
-    }
-    public void cadidatoPartido(ArrayList<Candidato> lista) {
-        // Lógica para mostrar el partido con más candidatos
-    }
-    public void top3Candidatos(ArrayList<Candidato> lista) {
-        // Lógica para mostrar el top 3 de ciudades con menos candidatos
+    public void mostrarListaCandidatos(ArrayList<Candidato> lista) {
+
     }
 
     // Otros métodos del modelo
