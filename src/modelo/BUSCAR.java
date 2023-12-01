@@ -2,14 +2,17 @@ package modelo;
 
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
+import vista.VistaGUI;
+
+
 public class BUSCAR extends javax.swing.JDialog {
 
     public BUSCAR() {
         initComponents();
     }
 
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -90,21 +93,47 @@ public class BUSCAR extends javax.swing.JDialog {
         pack();
     }
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        String nombreCandidatoBuscado = jTextPane1.getText();
+
+        Candidato candidatoEncontrado = null;
+        for (Candidato candidato : VistaGUI.getListaCandidatos()) {
+            if (candidato.getNombre().equalsIgnoreCase(nombreCandidatoBuscado)) {
+                candidatoEncontrado = candidato;
+                break;
+            }
+        }
+
+        if (candidatoEncontrado != null) {
+            JOptionPane.showMessageDialog(this, "Candidato encontrado:\n" +
+                    "Nombre: " + candidatoEncontrado.getNombre() + "\n" +
+                    "Cédula: " + candidatoEncontrado.getCedula() + "\n" +
+                    "Origen: " + candidatoEncontrado.getOrigen() + "\n" +
+                    "Derecha: " + candidatoEncontrado.isDerecha() + "\n" +
+                    "Partido: " + candidatoEncontrado.getPartidoc() + "\n" +
+                    "Promesas: " + candidatoEncontrado.getPromesas() + "\n" +
+                    "Votos: " + candidatoEncontrado.getVotos());
+        } else {
+            JOptionPane.showMessageDialog(this, "Candidato no encontrado.");
+        }
+    }
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-        
+
+        if (evt.getSource() == jButton2) {
+            VistaGUI ventana = new VistaGUI();
+            ventana.setVisible(true);
+        }
+
     }
 
     public static void main(String args[]) {
         new BUSCAR();
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;
-    // End of variables declaration//GEN-END:variables
 }
-
