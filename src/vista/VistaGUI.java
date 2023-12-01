@@ -16,8 +16,14 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 import controlador.OperacionMetodo;
 import controlador.Controlador;
+import modelo.Actualizar;
+import modelo.AgregarVotos;
+import modelo.Agregarventana;
+import modelo.BORRAR;
+import modelo.BUSCAR;
 import modelo.Candidato;
 import modelo.Ciudad;
+import modelo.LISTAR;
 import modelo.Partido;
 
 public class VistaGUI  extends JFrame implements Vista,ActionListener{
@@ -63,6 +69,7 @@ public class VistaGUI  extends JFrame implements Vista,ActionListener{
         JButton5.addActionListener(this);
         JButton6 = new JButton("gestión de votos");
         JButton6.addActionListener(this);
+        
        GroupLayout layout = new GroupLayout(panel);
         panel.setLayout(layout);
         layout.setAutoCreateGaps(true);
@@ -101,35 +108,37 @@ public class VistaGUI  extends JFrame implements Vista,ActionListener{
     }
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == JButton1) {
-            /*Agregarventana newframe = new Agregarventana(this);
+            Agregarventana newframe = new Agregarventana();
            newframe.setVisible(true);
-            this.dispose(); */
+            this.dispose(); 
         }
         
         if (e.getSource() == JButton2) {
-            /*Actualizar newframe = new Actualizar();
+            Actualizar newframe = new Actualizar(this,getListaCandidatos());
            newframe.setVisible(true);
-            this.dispose(); */
+            this.dispose(); 
+        }else {
+            System.out.println("La lista de candidatos es nula. No se puede crear la ventana Actualizar.");
         }
         if (e.getSource() == JButton3) {
-            /*BORRAR  borrarGUI = new BORRAR();
+            BORRAR  borrarGUI = new BORRAR();
             borrarGUI.setVisible(true);
-            this.dispose();*/
+            this.dispose();
         } 
         if (e.getSource() == JButton4) {
-            /*BUSCAR  buscarGUI = new BUSCAR();
+            BUSCAR  buscarGUI = new BUSCAR();
             buscarGUI.setVisible(true);
-            this.dispose(); */
+            this.dispose(); 
         } 
         if (e.getSource() == JButton5) {
-            /*LISTAR  listarGUI = new LISTAR();
+            LISTAR  listarGUI = new LISTAR();
             listarGUI.setVisible(true);
-            this.dispose(); */
+            this.dispose();
         }
         if (e.getSource() == JButton6) {
-            /*AgregarVotos newframe = new AgregarVotos(this); // Pasa la referencia de GUI
+            AgregarVotos newframe = new AgregarVotos(); // Pasa la referencia de GUI
             newframe.setVisible(true);
-            this.dispose(); */
+            this.dispose(); 
         }  
     }
 public Candidato obtenerCandidatoGanador() {
