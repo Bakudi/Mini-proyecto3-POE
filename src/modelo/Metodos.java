@@ -7,7 +7,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+
 import java.util.stream.Collectors;
+
 public class Metodos {
     private ArrayList<Candidato> listaCandidatos;
     public Metodos() {
@@ -112,6 +114,7 @@ public class Metodos {
             System.out.println("opcion invalida, intentelo de nuevo");
                 break;
         }
+
     }
     public void borrarCandidato(ArrayList<Candidato> lista) {
         Scanner scanner = new Scanner(System.in);
@@ -156,10 +159,27 @@ public class Metodos {
             System.out.println("-----------------------------------------------------");
         }
     }
-    public void mostrarListaCandidatos(ArrayList<Candidato> lista) {
-        // Lógica para mostrar la lista de candidatos
+
     }
-    public void asignarVotos(ArrayList<Candidato> lista) {
+    
+    }
+    public void buscarNombreCandidato(ArrayList<Candidato> lista) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el nombre del candidato que desea consultar: ");
+        String nomCandidato = scanner.nextLine();
+        for(int i=0 ; i< lista.size(); i++){
+            if(lista.get(i).getNombre() == nomCandidato){
+                System.out.println("Nombre : " + lista.get(i).getNombre() + "\n");
+                System.out.println("Cédula : " + lista.get(i).getCedula() + "\n");
+                System.out.println("Origen : " + lista.get(i).getOrigen() + "\n");
+                System.out.println("Candidato de : " + lista.get(i).isDerecha() + "\n");
+                System.out.println("Partido político : " + lista.get(i).getPartidoc() + "\n");
+                System.out.println("Promesas : " + lista.get(i).getPromesas() + "\n");
+            }
+        }    
+    }
+   
+
         if (lista.isEmpty()) {
             System.out.println("No hay candidatos para asignar votos.");
             return;
@@ -243,5 +263,18 @@ public class Metodos {
             }
         }
     }
+
+        // Lógica para asignar votos a los candidatos
+    }
+    public void contarVotos(ArrayList<Candidato> lista) {
+        // Lógica para contar los votos y mostrar al ganador
+    }
+    public void cadidatoPartido(ArrayList<Candidato> lista) {
+        // Lógica para mostrar el partido con más candidatos
+    }
+    public void top3Candidatos(ArrayList<Candidato> lista) {
+        // Lógica para mostrar el top 3 de ciudades con menos candidatos
+    }
+
     // Otros métodos del modelo
 }
