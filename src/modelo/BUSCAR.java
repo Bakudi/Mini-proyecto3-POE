@@ -1,5 +1,6 @@
 package modelo;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
@@ -7,7 +8,7 @@ import javax.swing.JOptionPane;
 import vista.VistaGUI;
 
 
-public class BUSCAR extends javax.swing.JDialog {
+public class BUSCAR extends javax.swing.JDialog implements ActionListener {
 
     public BUSCAR() {
         initComponents();
@@ -32,7 +33,7 @@ public class BUSCAR extends javax.swing.JDialog {
         jScrollPane1.setViewportView(jTextPane1);
 
         jButton1.setText("OK");
-        jButton1.addActionListener((ActionListener) this);
+        jButton1.addActionListener(this);
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton2.setText("Menú de candidatos");
@@ -136,4 +137,9 @@ public class BUSCAR extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+    }
 }
