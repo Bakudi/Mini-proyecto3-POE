@@ -50,52 +50,25 @@ public class VistaConsola implements Vista {
                 default:
                     break;
             }
+        
+
         }
         Scanner scanner2 = new Scanner(System.in);
         System.out.println("Bienvenido/a al menú de registro de votos por candidato\n");
         System.out.println("1. Insertar votos de candidatos\n");
-                break;    
-                default:
-                    break;
-            }
-            Scanner scanner2 = new Scanner(System.in);
-            System.out.println("\nDigite el numero (1) si desea volver a el menu de registro de candidatos.\nDigite el numero (0) si desea continuar a el menu de registro de votos.");
-            int opc2 = scanner2.nextInt();
-            if(opc2 == 1){
-                condi = true;
-            }
-            if(opc2 == 0){
-                condi = false;
-            } 
-        }
-        Scanner scanner2 = new Scanner(System.in);
-        System.out.println("Bienvenido/a al menú de registro de votos por candidato\n");
-        System.out.println("1. Insertar votos de candidatos\n2. Mostrar resultados finales.\n");
 
         System.out.println("Digite la el número de la opción a realizar: ");
         int opc2 = scanner2.nextInt();
         switch(opc2){
             case 1:
                 controlador.setOperacion(OperacionMetodo.ASIGNAR_V);
-
                 System.out.println("\n\n----------Resultados de votacion-----------\n");
                 controlador.setOperacion(OperacionMetodo.CONTAR_V);
                 controlador.setOperacion(OperacionMetodo.MAS_PARTIDO);
                 controlador.setOperacion(OperacionMetodo.TOP3); 
-
-                break;
-            case 2: 
-
                 break;
             default:
                 break;
         }
-
-
-
-        controlador.setOperacion(OperacionMetodo.CONTAR_V);
-        controlador.setOperacion(OperacionMetodo.MAS_PARTIDO);
-        controlador.setOperacion(OperacionMetodo.TOP3);
-
     }
 }
